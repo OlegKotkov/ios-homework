@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD212A922711B3CF00D1299D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD212A912711B3CF00D1299D /* Post.swift */; };
 		BD44EF2E26E94AA800AAEB9C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD44EF2D26E94AA800AAEB9C /* PostViewController.swift */; };
 		BD6729A026E8E5A100A5EDD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD67299F26E8E5A100A5EDD1 /* AppDelegate.swift */; };
 		BD6729A226E8E5A100A5EDD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6729A126E8E5A100A5EDD1 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD212A912711B3CF00D1299D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		BD44EF2D26E94AA800AAEB9C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		BD67299C26E8E5A100A5EDD1 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD67299F26E8E5A100A5EDD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				BD6729A826E8E5A200A5EDD1 /* Assets.xcassets */,
 				BD6729AA26E8E5A200A5EDD1 /* LaunchScreen.storyboard */,
 				BD6729AD26E8E5A200A5EDD1 /* Info.plist */,
+				BD212A912711B3CF00D1299D /* Post.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				BD44EF2E26E94AA800AAEB9C /* PostViewController.swift in Sources */,
 				BD6729A426E8E5A100A5EDD1 /* ViewController.swift in Sources */,
 				BD6729A026E8E5A100A5EDD1 /* AppDelegate.swift in Sources */,
+				BD212A922711B3CF00D1299D /* Post.swift in Sources */,
 				BDBB416426EA453C00F05ABA /* InfoViewController.swift in Sources */,
 				BD6729B626E8F53B00A5EDD1 /* ProfileViewController.swift in Sources */,
 				BD6729B426E8F52000A5EDD1 /* FeedViewController.swift in Sources */,

@@ -1,11 +1,6 @@
-//
-//  ViewController.swift
-//  Navigation
-//
-//  Created by mac on 08.09.2021.
-//
 
-import UIKit
+
+/*import UIKit
 
 class ViewController: UIViewController {
 
@@ -17,4 +12,4 @@ class ViewController: UIViewController {
 
 
 }
-
+*/

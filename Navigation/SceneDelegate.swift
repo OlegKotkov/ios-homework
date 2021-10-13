@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let profile = UINavigationController(rootViewController: profileVC)
             
             let postVC = PostViewController()
-            let post = UINavigationController(rootViewController: postVC)
+            //let post = UINavigationController(rootViewController: postVC)
             
             tabBarController.viewControllers = [feed, profile]
             window?.rootViewController = tabBarController

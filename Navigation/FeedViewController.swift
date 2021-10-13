@@ -1,14 +1,11 @@
-//
-//  FeedViewController.swift
-//  Navigation
-//
-//  Created by mac on 08.09.2021.
-//
+
 
 import UIKit
 
 class FeedViewController: UIViewController {
     let button = UIButton()
+    let post: Post = Post(title: "Новости")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemTeal
@@ -23,17 +20,14 @@ class FeedViewController: UIViewController {
     }
     @objc func tap(){
         let postVC = PostViewController()
-        postVC.text = "NEWS"
-        //navigationController?.pushViewController(bonusVC, animated: true)
+        postVC.text = "Новости"
+        postVC.post = post
+        navigationController?.pushViewController(postVC, animated: true)
         postVC.modalPresentationStyle = .fullScreen
         postVC.modalTransitionStyle = .flipHorizontal
-        
-        
-        self.present(postVC ,animated: true, completion: nil)
-        
+        //self.present(postVC ,animated: true, completion: nil)
     }
     
-
-    
-
 }
+
+

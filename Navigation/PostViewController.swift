@@ -1,18 +1,16 @@
-//
-//  PostViewController.swift
-//  Navigation
-//
-//  Created by mac on 08.09.2021.
-//
+
 
 import UIKit
 
 class PostViewController: UIViewController {
     var text: String?
     let button = UIButton()
+    var post: Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = post?.title
+        
         self.view.backgroundColor = .systemPink
         
         button.backgroundColor = .systemYellow
@@ -22,11 +20,9 @@ class PostViewController: UIViewController {
         button.setTitle(text, for: .normal)
         
         
-        let rightButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(PostViewController.doneButtonClicked(_:)))
+        let rightButton: UIBarButtonItem = UIBarButtonItem(title: "Alert", style: UIBarButtonItem.Style.done, target: self, action: #selector(PostViewController.doneButtonClicked(_:)))
         
         self.navigationItem.rightBarButtonItem = rightButton
-
-
     }
     
     @objc func tap() {
@@ -35,7 +31,10 @@ class PostViewController: UIViewController {
     }
     
     @objc func doneButtonClicked(_ button:UIBarButtonItem!){
-        print("Done clicked")
+        let infoVC = InfoViewController()
+        navigationController?.pushViewController(infoVC, animated: true)
+        infoVC.modalPresentationStyle = .fullScreen
+        infoVC.modalTransitionStyle = .flipHorizontal
     }
 
 }
