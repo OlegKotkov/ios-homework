@@ -14,13 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let feedVC = FeedViewController()
             let feed = UINavigationController(rootViewController: feedVC)
-            //feed.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
             let item1 = UITabBarItem(title: "Feed", image: UIImage(systemName: "paperplane.circle"), tag: 0)
 
             feed.tabBarItem = item1
             
             let profileVC = ProfileViewController()
-            //profileVC.tabBarItem = UITabBarItem (tabBarSystemItem: .favorites, tag: 1)
+
             
             let item2 = UITabBarItem(title: "Profile", image:  UIImage(systemName: "person.crop.circle"), tag: 1)
             

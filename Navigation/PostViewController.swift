@@ -14,7 +14,7 @@ class PostViewController: UIViewController {
         self.view.backgroundColor = .systemPink
         
         button.backgroundColor = .systemYellow
-        button.frame = CGRect (x: 40, y: 200, width: 200, height: 44)
+        button.frame = CGRect (x: 40, y: 250, width: 200, height: 44)
         button.addTarget(self, action: #selector(tap), for: .touchUpInside)
         view.addSubview(button)
         button.setTitle(text, for: .normal)
