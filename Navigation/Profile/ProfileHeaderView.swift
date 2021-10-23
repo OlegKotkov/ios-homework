@@ -4,14 +4,14 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    private let margin: CGFloat = 16.0
-    private let largeMargin: CGFloat = 27.0
-    private let radius: CGFloat = 4.0
-    private let avatarSize: CGFloat = 110.0
-    private let textFieldHeight: CGFloat = 40.0
-    private let defaultStatusText = "Waiting for something..."
+     let margin: CGFloat = 16.0
+     let largeMargin: CGFloat = 27.0
+     let radius: CGFloat = 4.0
+     let avatarSize: CGFloat = 110.0
+     let textFieldHeight: CGFloat = 40.0
+     let defaultStatusText = "Waiting for something..."
 
-    private lazy var avatarImageView: UIImageView = {
+     lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(image:UIImage(named: "profilePicture"))
         imageView.layer.cornerRadius = avatarSize / 2.0
         imageView.layer.borderColor = UIColor.white.cgColor
@@ -22,7 +22,7 @@ class ProfileHeaderView: UIView {
     
     
     
-    private let titleLabel: UILabel = {
+     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Oleg Kotkov"
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -33,7 +33,7 @@ class ProfileHeaderView: UIView {
 
     }()
     
-    private lazy var statusLabel: UILabel = {
+     lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.textColor = .gray
@@ -42,7 +42,7 @@ class ProfileHeaderView: UIView {
         return label
     }()
     
-    private lazy var statusButton: UIButton = {
+     lazy var statusButton: UIButton = {
         let button = UIButton()
 
         button.backgroundColor = .systemBlue
@@ -59,7 +59,7 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    private lazy var statusTextField: UITextField = {
+     lazy var statusTextField: UITextField = {
         let textField = UITextField()
         textField .textColor = .black
         textField .font = UIFont.systemFont(ofSize: 15)
@@ -69,7 +69,7 @@ class ProfileHeaderView: UIView {
         return textField
     }()
     
-    private let statusTextFieldBackgroundLayer: CALayer = {
+     let statusTextFieldBackgroundLayer: CALayer = {
         let borderLayer = CALayer()
         borderLayer.borderColor = UIColor.black.cgColor
         borderLayer.borderWidth = 1.0
@@ -78,19 +78,70 @@ class ProfileHeaderView: UIView {
         return borderLayer
     }()
     
-    private lazy var statusText: String = defaultStatusText
+     lazy var statusText: String = defaultStatusText
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         print("Init with frame")
         
-        addSubview(titleLabel)
         addSubview(avatarImageView)
+        //addSubview(titleLabel)
         addSubview(titleLabel)
-        addSubview(statusLabel)
-        addSubview(statusTextField)
         addSubview(statusButton)
+        addSubview(statusTextField)
+        addSubview(statusLabel)
+        
+        
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        statusButton.translatesAutoresizingMaskIntoConstraints = false
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        setupConstraints()
+    }
+    
+    fileprivate func setupConstraints() {
+    
+        
+        let constraints = [
+        
+            avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 110), avatarImageView.heightAnchor.constraint(equalToConstant: 110),
+            
+
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+            titleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            
+            statusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 43),
+            statusButton.topAnchor.constraint(equalTo: statusTextField.bottomAnchor, constant: 16),
+            statusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            statusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statusButton.heightAnchor.constraint(equalToConstant: 50),
+        
+            
+            
+            statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 6),
+            statusTextField.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusTextField.widthAnchor.constraint(equalToConstant: 256),
+            statusTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statusTextField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -16),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+
+            statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 16),
+            statusLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+
+        ]
+        NSLayoutConstraint.activate(constraints)
+        //self.view.setNeedsLayout()
+        //self.view.layoutIfNeeded()
+        
+        
+        
+        
+        
     }
 
     required init?(coder: NSCoder) {
@@ -109,48 +160,6 @@ class ProfileHeaderView: UIView {
             return
         }
 
-        avatarImageView.frame = CGRect(
-            x: superview.safeAreaInsets.left + margin,
-            y: superview.safeAreaInsets.top + margin,
-            width: avatarSize,
-            height: avatarSize
-        )
-
-        titleLabel.frame = CGRect(
-            x: avatarImageView.frame.maxX + margin,
-            y: superview.safeAreaInsets.top + 27.0,
-            width: bounds.width - avatarImageView.bounds.width - margin * 3 - superview.safeAreaInsets.left - superview.safeAreaInsets.right,
-            height: titleLabel.bounds.height
-        )
-
-        statusButton.frame = CGRect(
-            x: superview.safeAreaInsets.left + margin,
-            y: avatarImageView.frame.maxY + margin + 27.0,
-            width: bounds.width - margin * 2 - superview.safeAreaInsets.left - superview.safeAreaInsets.right,
-            height: 50
-        )
-
-        statusTextField.frame = CGRect(
-            x: titleLabel.frame.minX,
-            y: statusButton.frame.minY - margin - textFieldHeight,
-            width: titleLabel.frame.width,
-            height: textFieldHeight
-        )
-
-        statusTextFieldBackgroundLayer.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: statusTextField.frame.width,
-            height: textFieldHeight
-        )
-
-
-        statusLabel.frame = CGRect(
-            x: titleLabel.frame.minX,
-            y: statusTextField.frame.minY - 6.0 - statusLabel.bounds.height,
-            width: titleLabel.frame.width,
-            height: statusLabel.bounds.height
-        )
     }
 
     
@@ -168,6 +177,10 @@ class ProfileHeaderView: UIView {
         self.statusText = statusText
     }
 
+    
+    
+    
+    
 }
 
     
