@@ -22,9 +22,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             
             let item2 = UITabBarItem(title: "Profile", image:  UIImage(systemName: "person.crop.circle"), tag: 1)
-            
+         /*
+          //was for Profile
+          
             profileVC.tabBarItem = item2
             let profile = UINavigationController(rootViewController: profileVC)
+            */
+            //adding LoginViewController
+            
+            let loginVC = LogInViewController()
+            
+            loginVC.tabBarItem = item2
+            let profile = UINavigationController(rootViewController: loginVC)
             
             let postVC = PostViewController()
             //let post = UINavigationController(rootViewController: postVC)
