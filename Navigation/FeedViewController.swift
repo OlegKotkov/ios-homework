@@ -5,11 +5,11 @@ import UIKit
 class FeedViewController: UIViewController {
 
     let button = UIButton()
-    let post: Post = Post(title: "Новости")
+    let postOld: PostOld = PostOld(title: "Новости")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = post.title
+        title = postOld.title
         self.view.backgroundColor = .systemTeal
         
         button.backgroundColor = .white
@@ -25,7 +25,7 @@ class FeedViewController: UIViewController {
     @objc func tap(){
         let postVC = PostViewController()
         postVC.text = "Интересный заголовок"
-        postVC.post = post
+        postVC.postOld = postOld
         navigationController?.pushViewController(postVC, animated: true)
         postVC.modalPresentationStyle = .fullScreen
         postVC.modalTransitionStyle = .flipHorizontal

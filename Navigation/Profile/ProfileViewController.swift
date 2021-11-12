@@ -3,12 +3,12 @@ import UIKit
 
 
 class ProfileViewController: UIViewController {
-    let post: Post = Post(title: "Profile")
+    let postOld: PostOld = PostOld(title: "Profile")
     private let headerView = ProfileHeaderView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = post.title
+        title = postOld.title
         self.view.backgroundColor = .lightGray
         view.addSubview(headerView)
         setupBottomButton()

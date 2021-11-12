@@ -106,22 +106,7 @@ class LogInViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .white
-        navigationController?.navigationBar.isHidden = true
-        view.addSubview(scrollView)
-
-        self.scrollView.addSubview(contentView)
-       
-        contentView.addSubview(logoImageView)
-        contentView.addSubview(inputFieldsStackView)
-        contentView.addSubview(loginButton)
-
-     
-        view.addSubview(logoImageView)
-        view.addSubview(inputFieldsStackView)
-        view.addSubview(loginButton)
-      
+   
         setupConstraints()
         
     }
@@ -156,16 +141,16 @@ class LogInViewController: UIViewController {
     
     
     
-    fileprivate func setupConstraints() {
+    private func setupConstraints() {
         navigationController?.navigationBar.isHidden = true
-  /*
+  
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
         contentView.addSubview(logoImageView)
         contentView.addSubview(inputFieldsStackView)
         contentView.addSubview(loginButton)
-*/
+
         
 
         let constraints = [
@@ -202,10 +187,11 @@ class LogInViewController: UIViewController {
             emailTextField.heightAnchor.constraint(equalToConstant: textFieldHeight),
             passwordTextField.heightAnchor.constraint(equalToConstant: textFieldHeight),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
-            loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            loginButton.heightAnchor.constraint(equalToConstant: textFieldHeight),
+            loginButton.topAnchor.constraint(equalTo: inputFieldsStackView.bottomAnchor, constant: margin),
+            loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            loginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            loginButton.heightAnchor.constraint(equalToConstant: textFieldHeight)
         
             
         ]
