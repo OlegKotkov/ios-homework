@@ -83,14 +83,6 @@ class ProfileHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        print("Init with frame")
-        
-        addSubview(avatarImageView)
-        //addSubview(titleLabel)
-        addSubview(titleLabel)
-        addSubview(statusButton)
-        addSubview(statusTextField)
-        addSubview(statusLabel)
         
         
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,11 +93,21 @@ class ProfileHeaderView: UIView {
         setupConstraints()
     }
     
+    
+    
     fileprivate func setupConstraints() {
     
         
-        let constraints = [
+        backgroundColor = .lightGray
+        addSubview(avatarImageView)
+        addSubview(titleLabel)
+        addSubview(statusButton)
+        addSubview(statusTextField)
+        addSubview(statusLabel)
         
+        
+        let constraints = [
+            
             avatarImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             avatarImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             avatarImageView.widthAnchor.constraint(equalToConstant: 110), avatarImageView.heightAnchor.constraint(equalToConstant: 110),
@@ -147,19 +149,16 @@ class ProfileHeaderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     
-
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        print("layoutSubviews")
-
-        guard let superview = superview else {
-            print("Sorry, no superview")
-            return
-        }
-
+        statusTextFieldBackgroundLayer.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: statusTextField.bounds.width,
+            height: statusTextField.bounds.height
+        )
     }
 
     
