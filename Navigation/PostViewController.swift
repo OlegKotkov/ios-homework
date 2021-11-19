@@ -5,11 +5,11 @@ import UIKit
 class PostViewController: UIViewController {
     var text: String?
     let button = UIButton()
-    var post: Post?
+    var postOld: PostOld?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = post?.title
+        title = postOld?.title
         
         self.view.backgroundColor = .systemPink
         
